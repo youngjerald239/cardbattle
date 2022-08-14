@@ -1,3 +1,4 @@
-export * from './App/App'
-export * from './StartMenu/StartMenu'
-export * from './BattleMenu/BattleMenu'
+export * from './App'
+export * from './StartMenu'
+export * from './BattleMenu'
+export * from './Bar'
