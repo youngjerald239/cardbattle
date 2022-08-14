@@ -34,7 +34,11 @@ export const Battle = () => {
                 </div>
             </div>
             <div className={styles.hudChild}>
-                <BattleMenu />
+                <BattleMenu 
+                    onAttack={()=> console.log('Attack!')}
+                    onMagic={()=> console.log('Magic!')}
+                    onHeal={()=> console.log('Heal!')}
+                />
             </div>
         </div>
     )
