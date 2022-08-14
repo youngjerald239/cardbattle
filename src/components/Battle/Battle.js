@@ -2,13 +2,15 @@ import { PlayerSummary } from 'components/PlayerSummary/PlayerSummary'
 import styles from './styles.module.css'
 import {useState} from 'react'
 import { playerStats, opponentStats } from 'components/shared'
+import { BattleMenu } from 'components/BattleMenu'
 
 export const Battle = () => {
 
     const [playerHealth, setPlayerHealth] = useState(playerStats.maxHealth)
     const [opponentHealth, setOpponentHealth] = useState(opponentStats.maxHealth)
 
-    return <div className={styles.main}>
+    return (
+    
         <div className={styles.main}>
             <div className={styles.opponent}>
                 <div className={styles.summary}>
@@ -31,6 +33,9 @@ export const Battle = () => {
                      />
                 </div>
             </div>
+            <div className={styles.hudChild}>
+                <BattleMenu />
+            </div>
         </div>
-    </div>
+    )
 }
