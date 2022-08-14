@@ -4,7 +4,7 @@ const red = '#821200'
 const blue = '#1953cb'
 
 
-export const PlayerSummary = ({main}) => {
+export const PlayerSummary = ({main = false}) => {
     return (
     <div 
       style={{backgroundColor: main ? red : blue}} 
