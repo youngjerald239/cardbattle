@@ -22,6 +22,31 @@ export const Battle = () => {
                     />
                 </div>
             </div>
+            <div className={styles.characters}>
+                <div className={styles.gameHeader}>
+                    {playerStats.name} vs {opponentStats.name}
+                </div>
+            </div>
+
+            <div className={styles.gameImages}>
+                <div className={styles.playerSprite}>
+                    <img 
+                        alt={playerStats.name}
+                        src={playerStats.img}
+                       // className={styles.}
+
+                    />
+                </div>
+
+                <div className={styles.opponentSprite}>
+                    <img 
+                        alt={opponentStats.name}
+                        src={opponentStats.img}
+                       // className={styles.}
+
+                    />
+                </div>
+            </div>
             <div className={styles.user}>
                 <div className={styles.summary}>
                     <PlayerSummary 
