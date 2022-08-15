@@ -48,7 +48,7 @@
 .gameImages {
     display: flex;
     justify-content: space-between;
-    padding: 1px;
+    padding: 25px;
     box-sizing: border-box;
 }
 
@@ -63,9 +63,24 @@
     transition: 0.5s;
 }
 
+.playerSprite img{
+    margin: 10px;
+    margin-left: 5px;
+    height:700px;
+    width:700px;
+}
+
 .playerSprite .attack {
     transition: 0.1s;
     transform: translateX(100px);
+}
+
+.opponentSprite img{
+    margin: 10px;
+    margin-left: 180px;
+    height:fit-content;
+    width:600px;
+    
 }
 
 .opponentSprite .attack {
