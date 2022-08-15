@@ -3,12 +3,13 @@ import styles from './styles.module.css'
 import {useState} from 'react'
 import { playerStats, opponentStats } from 'components/shared'
 import { BattleMenu } from 'components/BattleMenu'
+import { BattleAnnouncer } from 'components/BattleAnnouncer'
 
 export const Battle = () => {
 
     const [playerHealth, setPlayerHealth] = useState(playerStats.maxHealth)
     const [opponentHealth, setOpponentHealth] = useState(opponentStats.maxHealth)
-
+    const [announcerMessage, setAnnouncerMessage] = useState('')
     return (
     
         <>
@@ -58,6 +59,16 @@ export const Battle = () => {
                      />
                 </div>
                 <div className={styles.hud}>
+
+            <div className={styles.hudChild}>
+                <BattleAnnouncer 
+                    message={
+                        announcerMessage || `What will ${playerStats.name} do?`
+                    }
+
+                />
+            </div>
+
             <div className={styles.hudChild}>
                 <BattleMenu 
                     onAttack={()=> console.log('Attack!')}
