@@ -48,7 +48,7 @@
 .gameImages {
     display: flex;
     justify-content: space-between;
-    padding: 25px;
+    padding: 1px;
     box-sizing: border-box;
 }
 
