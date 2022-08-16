@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react'
-import { playerStats, opponentStats } from 'components/shared'
-import { wait } from '@testing-library/user-event/dist/utils'
+import { wait, magic, heal, attack, playerStats, opponentStats } from '../components/shared'
 
 export const useBattleSequence = sequence => {
 
@@ -23,7 +22,7 @@ export const useBattleSequence = sequence => {
 
             switch (mode) {
                 case 'attack':
-                    const damage = attacker({attacker, receiver});
+                    const damage = attack({attacker, receiver});
 
                     (async () => {
                        setInSequence(true)
