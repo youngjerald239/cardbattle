@@ -53,7 +53,7 @@ export const Battle = () => {
                     <img 
                         alt={playerStats.name}
                         src={playerStats.img}
-                       // className={styles.}
+                       className={styles[playerAnimation]}
 
                     />
                 </div>
@@ -62,7 +62,7 @@ export const Battle = () => {
                     <img 
                         alt={opponentStats.name}
                         src={opponentStats.img}
-                       // className={styles.}
+                        className={styles[opponentAnimation]}
 
                     />
                 </div>
@@ -90,9 +90,9 @@ export const Battle = () => {
 
             <div className={styles.hudChild}>
                 <BattleMenu 
-                    onAttack={()=> console.log('Attack!')}
-                    onMagic={()=> console.log('Magic!')}
-                    onHeal={()=> console.log('Heal!')}
+                    onAttack={()=> setSequence({turn, mode: 'attack'})}
+                    onMagic={()=> setSequence({turn, mode: 'magick'})}
+                    onHeal={()=> setSequence({turn, mode: 'heal'})}
                 />
             </div>
             </div>

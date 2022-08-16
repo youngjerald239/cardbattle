@@ -23,7 +23,7 @@ export const useBattleSequence = sequence => {
 
             switch (mode) {
                 case 'attack':
-                    const damage = attack({attacker, receiver});
+                    const damage = attacker({attacker, receiver});
 
                     (async () => {
                        setInSequence(true)
