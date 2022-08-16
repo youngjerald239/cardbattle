@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import styles from './styles.module.css'
-import { StartMenu } from 'components/StartMenu'
+import { StartMenu, EndMenu } from 'components'
 import {Battle} from 'components/Battle'
 
 export const App = () => {
@@ -28,7 +28,11 @@ export const App = () => {
         />
       )}
 
-     
+      {mode === 'gameOver' && <EndMenu winner={winner} onStartClick={() => {
+        setWinner(undefined)
+        setMode('battle')
+        
+        }}/>}
     </div>
   );
 };
