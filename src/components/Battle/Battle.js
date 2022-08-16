@@ -1,15 +1,36 @@
 import { PlayerSummary } from 'components/PlayerSummary/PlayerSummary'
 import styles from './styles.module.css'
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import { playerStats, opponentStats } from 'components/shared'
 import { BattleMenu } from 'components/BattleMenu'
 import { BattleAnnouncer } from 'components/BattleAnnouncer'
+import { useAIOpponent, useBattleSequence } from 'hooks'
 
 export const Battle = () => {
+    const [sequence, setSequence] = useState({})
 
-    
+     const {
+        turn,
+        inSequence,
+        playerHealth,
+        opponentHealth,
+        announcerMessage,
+        playerAnimation,
+        opponentAnimation
+        } =  useBattleSequence(sequence)
+
+        const aiChoice = useAIOpponent(turn)
+
+        useEffect(() => {
+            if (aiChoice && turn === 1 && !inSequence) {
+                setSequence({turn, mode: aiChoice})
+            } 
+        }, [turn, aiChoice, inSequence])
+
     return (
     
+       
+
         <>
             <div className={styles.opponent}>
                 <div className={styles.summary}>
