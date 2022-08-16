@@ -1,12 +1,12 @@
 export const playerStats = {
   level: 44,
-  maxHealth: 177,
+  maxHealth: 188,
   name: 'Sting',
   img: '/assets/sting.png',
 
   magic: 32,
   attack: 50,
-  defense: 30,
+  defense: 48,
   magicDefense: 30,
 };
 export const opponentStats = {

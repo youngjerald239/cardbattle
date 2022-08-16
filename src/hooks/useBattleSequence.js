@@ -1,5 +1,12 @@
-import {useEffect, useState} from 'react'
-import { wait, magic, heal, attack, playerStats, opponentStats } from '../components/shared'
+import {
+  wait,
+  magic,
+  heal,
+  attack,
+  playerStats,
+  opponentStats,
+} from '../components/shared';
+import { useEffect, useState } from 'react';
 
 export const useBattleSequence = sequence => {
   const [turn, setTurn] = useState(0);
@@ -70,13 +77,13 @@ export const useBattleSequence = sequence => {
 
           (async () => {
             setInSequence(true);
-            setAnnouncerMessage(`${attacker.name} has cast a spell!`);
+            setAnnouncerMessage(`${attacker.name} has chosen to cast a spell!`);
             await wait(1000);
 
             turn === 0
               ? setPlayerAnimation('magic')
               : setOpponentAnimation('magic');
-            await wait(1000);
+            await wait(100);
 
             turn === 0
               ? setPlayerAnimation('static')
@@ -91,15 +98,13 @@ export const useBattleSequence = sequence => {
             turn === 0
               ? setOpponentAnimation('static')
               : setPlayerAnimation('static');
-            setAnnouncerMessage(
-              `${receiver.name} doesn't know what hit them!`,
-            );
+            setAnnouncerMessage(`${receiver.name} didn't know what hit them!`);
             turn === 0
               ? setOpponentHealth(h => (h - damage > 0 ? h - damage : 0))
               : setPlayerHealth(h => (h - damage > 0 ? h - damage : 0)); // We don't want a negative HP.
-            await wait(2500);
+            await wait(2000);
 
-            setAnnouncerMessage(`Now it's ${receiver.name}'s turn!`);
+            setAnnouncerMessage(`Now it's ${receiver.name} turn!`);
             await wait(1500);
 
             setTurn(turn === 0 ? 1 : 0);
@@ -108,7 +113,6 @@ export const useBattleSequence = sequence => {
 
           break;
         }
-
         case 'heal': {
           const recovered = heal({ receiver: attacker });
 
